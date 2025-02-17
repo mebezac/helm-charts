@@ -4,46 +4,86 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Zac's Helm Charts Repository</title>
+  <title>Zac's Helm Charts Repository - Pizza Edition!</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Luckiest+Guy&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Bangers', cursive;
+      /* Or 'Luckiest Guy', or a combo */
+    }
+
+    @keyframes bounce {
+
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+
+    .bouncing-pizza {
+      display: inline-block;
+      animation: bounce 2s ease-in-out infinite;
+    }
+  </style>
 </head>
 
-<body class="bg-gray-50">
-  <div class="min-h-screen py-16">
+<body class="bg-yellow-200">
+  <div class="min-h-screen py-16"
+    style="background-image: url('https://www.transparenttextures.com/patterns/pizza.png');">
     <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center">
-        <h1 class="text-4xl font-bold text-gray-900 mb-8">zac.pizza</h1>
-        <p class="text-xl text-gray-600 mb-12">Tasty slices 🍕</p>
+        <h1 class="text-6xl font-bold text-red-700 mb-8 tracking-wider" style="text-shadow: 2px 2px 4px #ffc107;">
+          <span class="bouncing-pizza">🍕</span> Zac's Pizza Charts! <span class="bouncing-pizza">🍕</span>
+        </h1>
+        <p class="text-2xl text-green-700 mb-12 font-luckiest-guy"
+          style="font-family: 'Luckiest Guy', cursive; text-shadow: 1px 1px 2px #ffc107;">
+          <span class="bouncing-pizza">🍕</span> Serving Up Tasty Helm Slices <span class="bouncing-pizza">🍕</span>
+        </p>
       </div>
 
-      <div class="bg-white rounded-lg shadow-md p-8 mb-8">
-        <h2 class="text-2xl font-semibold text-gray-800 mb-4">Installation</h2>
-        <div class="bg-gray-800 rounded-md p-4">
-          <code class="text-gray-100 font-mono">
+      <div class="bg-orange-100 rounded-xl shadow-lg p-8 mb-8 border-4 border-dashed border-red-500">
+        <h2
+          class="text-3xl font-semibold text-red-800 mb-4 underline decoration-double decoration-yellow-500 underline-offset-4">
+          Get a Slice (Installation)</h2>
+        <div class="bg-gray-900 rounded-md p-4 border-2 border-yellow-500">
+          <code class="text-yellow-200 font-mono text-lg">
                         helm repo add zac-pizza https://zac.pizza/helm-charts<br>
                         helm repo update
                     </code>
         </div>
+        <p class="mt-4 text-sm text-gray-700 italic">Warning: May contain cheesy goodness. 🧀</p>
       </div>
 
-      <div class="bg-white rounded-lg shadow-md p-8">
-        <h2 class="text-2xl font-semibold text-gray-800 mb-4">Available Charts</h2>
-        <div class="border rounded-lg p-6">
-          <h3 class="text-xl font-medium text-gray-800 mb-2">External Service Ingresses</h3>
-          <p class="text-gray-600 mb-4">
-            A Helm chart that creates Kubernetes ingresses and external name services to route traffic to external
-            services outside your cluster.
+      <div class="bg-orange-100 rounded-xl shadow-lg p-8 border-4 border-dashed border-red-500">
+        <h2
+          class="text-3xl font-semibold text-red-800 mb-4 underline decoration-double decoration-yellow-500 underline-offset-4">
+          Today's Specials (Available Charts)</h2>
+        <div class="border-4 border-yellow-500 rounded-xl p-6 bg-yellow-50">
+          <h3 class="text-xl font-medium text-green-800 mb-2"><span class="text-2xl mr-2">🍕</span> External Service
+            Ingresses</h3>
+          <p class="text-gray-700 mb-4">
+            Like a pizza delivery for your external services! This chart creates Kubernetes ingresses and external name
+            services to route traffic to external
+            services outside your cluster. Guaranteed fresh!
           </p>
           <a href="https://github.com/mebezac/helm-charts/blob/main/charts/external-service-ingresses/README.md"
-            class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
-            View Documentation
+            class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-full text-white bg-gradient-to-r from-red-500 to-yellow-500 hover:from-red-600 hover:to-yellow-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-500">
+            Get the Recipe (Documentation)
           </a>
         </div>
       </div>
 
-      <footer class="mt-16 text-center text-gray-600">
-        <p>Available under the <a href="https://github.com/mebezac/helm-charts/blob/main/LICENSE"
-            class="text-blue-500 hover:text-blue-700">MIT License</a></p>
+      <footer class="mt-16 text-center text-pink-700" style="text-shadow: 1px 1px 2px #f8bbd0;">
+        <p>Baked with <span class="text-red-500">❤️</span> under the <a
+            href="https://github.com/mebezac/helm-charts/blob/main/LICENSE"
+            class="text-blue-500 hover:text-blue-700 underline">MIT License</a> (Nothing's better than free pizza)</p>
       </footer>
     </div>
   </div>
