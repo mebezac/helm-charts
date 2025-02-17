@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zac's Helm Charts Repository</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-50">
+  <div class="min-h-screen py-16">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center">
+        <h1 class="text-4xl font-bold text-gray-900 mb-8">zac.pizza</h1>
+        <p class="text-xl text-gray-600 mb-12">Tasty slices 🍕</p>
+      </div>
+
+      <div class="bg-white rounded-lg shadow-md p-8 mb-8">
+        <h2 class="text-2xl font-semibold text-gray-800 mb-4">Installation</h2>
+        <div class="bg-gray-800 rounded-md p-4">
+          <code class="text-gray-100 font-mono">
+                        helm repo add zac-pizza https://zac.pizza/helm-charts<br>
+                        helm repo update
+                    </code>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-lg shadow-md p-8">
+        <h2 class="text-2xl font-semibold text-gray-800 mb-4">Available Charts</h2>
+        <div class="border rounded-lg p-6">
+          <h3 class="text-xl font-medium text-gray-800 mb-2">External Service Ingresses</h3>
+          <p class="text-gray-600 mb-4">
+            A Helm chart that creates Kubernetes ingresses and external name services to route traffic to external
+            services outside your cluster.
+          </p>
+          <a href="https://github.com/mebezac/helm-charts/blob/main/charts/external-service-ingresses/README.md"
+            class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+            View Documentation
+          </a>
+        </div>
+      </div>
+
+      <footer class="mt-16 text-center text-gray-600">
+        <p>Available under the <a href="https://github.com/mebezac/helm-charts/blob/main/LICENSE"
+            class="text-blue-500 hover:text-blue-700">MIT License</a></p>
+      </footer>
+    </div>
+  </div>
+</body>
+
+</html>
