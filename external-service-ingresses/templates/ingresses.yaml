@@ -4,7 +4,7 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: {{ $.app }}-{{ .host | replace "." "-" }}-ingress
+  name: {{ $.name }}-{{ .host | replace "." "-" }}-ingress
   namespace: {{ $.Release.Namespace }}
   {{- with .annotations }}
   annotations:
@@ -20,7 +20,7 @@ spec:
             pathType: {{ .pathType | default "ImplementationSpecific" }}
             backend:
               service:
-                name: {{ $.app }}-external-service
+                name: {{ $.name }}-external-service
                 port:
                   number: {{ .port }}
 {{- end }}
