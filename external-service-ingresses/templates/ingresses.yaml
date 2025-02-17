@@ -1,0 +1,27 @@
+{{- range .Values.services }}
+{{- range .ingresses }}
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: {{ $.app }}-{{ .host | replace "." "-" }}-ingress
+  namespace: {{ $.Release.Namespace }}
+  {{- with .annotations }}
+  annotations:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+spec:
+  ingressClassName: {{ .ingressClassName }}
+  rules:
+    - host: {{ .host }}
+      http:
+        paths:
+          - path: {{ .path | default "/" }}
+            pathType: {{ .pathType | default "ImplementationSpecific" }}
+            backend:
+              service:
+                name: {{ $.app }}-external-service
+                port:
+                  number: {{ .port }}
+{{- end }}
+{{- end }}

@@ -1,0 +1,20 @@
+{{- range .Values.services }}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .app }}-external-service
+  namespace: {{ $.Release.Namespace }}
+  labels:
+    app: {{ .app }}
+spec:
+  type: ExternalName
+  externalName: {{ .external_name }}
+  ports:
+  {{- range .service_ports }}
+    - port: {{ .port }}
+      targetPort: {{ .target_port }}
+      name: {{ .name }}
+      protocol: {{ .protocol | default "TCP" }}
+  {{- end }}
+{{- end }}
