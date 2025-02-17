@@ -65,41 +65,43 @@ services:
 
 For each service defined in the values, this chart will create:
 
-1. An ExternalName service that points to the external service
+1. An ExternalName service that points to each of the ports defined in the service_ports section to the external service
 2. One or more ingress rules based on the ingress configurations
 
 ## Examples
 
-### Single Service with Multiple Ingress Rules
+### Single Service with Multiple ports and ingresses
 
+```yaml
 services:
-
-- name: api-service
-  external_name: api.external-service.com
-  service_ports:
-  - port: 80
-    target_port: 80
-    name: http
+  - name: api-service
+    external_name: api.external-service.com
+    service_ports:
+      - port: 80
+        target_port: 80
+        name: frontend
+      - port: 8022
+        target_port: 8022
+        name: admin
     ingresses:
-  - host: api.mydomain.com
-    ingressClassName: nginx
-    port: 80
-  - host: api-v2.mydomain.com
-    path: /v2
-    ingressClassName: nginx
-    port: 80
-    annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /
+      - host: frontend.mydomain.com
+        ingressClassName: internal
+        port: 80
+      - host: admin.mydomain.com
+        ingressClassName: internal
+        port: 8022
+```
 
 ## Notes
 
-- The chart requires Kubernetes 1.19+ due to the use of networking.k8s.io/v1 API for Ingress resources
+- The chart requires Kubernetes 1.19+
 - Make sure your cluster has an appropriate ingress controller installed
 - External services must be accessible from your cluster
 
 ## Version History
 
-- 1.0.1: Current version
+- 1.0.1: Fixed issue with service name in ingress template
+- 1.0.0: Initial version
 
 ## License
 
