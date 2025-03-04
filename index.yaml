@@ -2,6 +2,14 @@ apiVersion: v1
 entries:
   external-service-ingresses:
   - apiVersion: v2
+    created: "2025-03-04T19:33:27.153058278Z"
+    description: External Service Ingresses Helm Chart
+    digest: 74258fcec05c713943fdd7fe9bd67b76662ce47d363824f09582eaf7b2b9b42c
+    name: external-service-ingresses
+    urls:
+    - https://github.com/mebezac/helm-charts/releases/download/external-service-ingresses-2.0.0/external-service-ingresses-2.0.0.tgz
+    version: 2.0.0
+  - apiVersion: v2
     created: "2025-02-17T05:00:42.916012756Z"
     description: External Service Ingresses Helm Chart
     digest: 4ef6f8a59b1bbd0d16704c18c7c196219efd75a0f2671836815edea35addb8bf
@@ -17,4 +25,4 @@ entries:
     urls:
     - https://github.com/mebezac/helm-charts/releases/download/external-service-ingresses-1.0.0/external-service-ingresses-1.0.0.tgz
     version: 1.0.0
-generated: "2025-02-17T05:00:42.916023947Z"
+generated: "2025-03-04T19:33:27.153068878Z"
