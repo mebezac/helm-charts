@@ -8,8 +8,7 @@ metadata:
   labels:
     name: {{ .name }}
 spec:
-  type: ExternalName
-  externalName: {{ .external_name }}
+  type: ClusterIP
   ports:
   {{- range .service_ports }}
     - port: {{ .port }}
@@ -17,4 +16,21 @@ spec:
       name: {{ .name }}
       protocol: {{ .protocol | default "TCP" }}
   {{- end }}
+---
+apiVersion: v1
+kind: Endpoints
+metadata:
+  name: {{ .name }}-external-service
+  namespace: {{ $.Release.Namespace }}
+  labels:
+    name: {{ .name }}
+subsets:
+  - addresses:
+    - ip: {{ .external_ip }}
+    ports:
+    {{- range .service_ports }}
+      - port: {{ .target_port }}
+        name: {{ .name }}
+        protocol: {{ .protocol | default "TCP" }}
+    {{- end }}
 {{- end }}

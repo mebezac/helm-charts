@@ -24,7 +24,7 @@ helm install external-services zac-pizza/external-service-ingresses
 ```yaml
 services:
   - name: example-service
-    external_name: 192.30.252.153
+    external_ip: 192.30.252.153
     service_ports:
       - port: 80
         target_port: 80
@@ -43,7 +43,7 @@ services:
 | Parameter                                | Description           | Required | Default |
 | ---------------------------------------- | --------------------- | -------- | ------- |
 | `services[].name`                        | Name of the service   | Yes      |         |
-| `services[].external_name`               | External service FQDN | Yes      |         |
+| `services[].external_ip`                 | External service IP   | Yes      |         |
 | `services[].service_ports`               | List of service ports | Yes      |         |
 | `services[].service_ports[].port`        | Port number           | Yes      |         |
 | `services[].service_ports[].target_port` | Target port number    | Yes      |         |
@@ -65,7 +65,7 @@ services:
 
 For each service defined in the values, this chart will create:
 
-1. An ExternalName service that points to each of the ports defined in the service_ports section to the external service
+1. A ClusterIP service with an Endpoints resource pointing to the external IP for each of the ports defined in the service_ports section
 2. One or more ingress rules based on the ingress configurations
 
 ## Examples
@@ -75,7 +75,7 @@ For each service defined in the values, this chart will create:
 ```yaml
 services:
   - name: api-service
-    external_name: api.external-service.com
+    external_ip: 192.30.252.153
     service_ports:
       - port: 80
         target_port: 80
@@ -100,6 +100,7 @@ services:
 
 ## Version History
 
+- 2.0.0: Switched to ClusterIP service type and Endpoints resource (aka the correct way to do it)
 - 1.0.1: Fixed issue with service name in ingress template
 - 1.0.0: Initial version
 
