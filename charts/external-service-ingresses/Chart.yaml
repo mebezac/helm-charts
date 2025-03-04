@@ -1,4 +1,4 @@
 apiVersion: v2
 name: external-service-ingresses
 description: External Service Ingresses Helm Chart
-version: 2.0.0
+version: 2.0.1

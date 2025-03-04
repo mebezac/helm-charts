@@ -1,6 +1,6 @@
 # External Service Ingresses Helm Chart
 
-This Helm chart creates Kubernetes ingresses and external name services to route traffic to external services outside your cluster.
+This Helm chart creates Kubernetes ingresses and services with EndpointSlices to route traffic to external services outside your cluster.
 
 ## Overview
 
@@ -65,7 +65,7 @@ services:
 
 For each service defined in the values, this chart will create:
 
-1. A ClusterIP service with an Endpoints resource pointing to the external IP for each of the ports defined in the service_ports section
+1. A service with an EndpointSlice resource pointing to the external IP for each of the ports defined in the service_ports section
 2. One or more ingress rules based on the ingress configurations
 
 ## Examples
@@ -97,10 +97,13 @@ services:
 - The chart requires Kubernetes 1.19+
 - Make sure your cluster has an appropriate ingress controller installed
 - External services must be accessible from your cluster
+- External IPs must not be loopback (127.0.0.0/8 for IPv4) or link-local (169.254.0.0/16 and 224.0.0.0/24 for IPv4)
+- External IPs cannot be cluster IPs of other Kubernetes Services
 
 ## Version History
 
-- 2.0.0: Switched to ClusterIP service type and Endpoints resource (aka the correct way to do it)
+- 2.0.1: Switched from Endpoints to EndpointSlice
+- 2.0.0: Switched to ClusterIP service type and Endpoints resource
 - 1.0.1: Fixed issue with service name in ingress template
 - 1.0.0: Initial version
 
